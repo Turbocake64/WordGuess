@@ -1,3 +1,13 @@
 body {
-    background-color: salmon;
+    background-image: url("../images/forest.png");
+    font-family:
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+#pokebox {
+    border: 6px;
+    border-color: orange;
 }

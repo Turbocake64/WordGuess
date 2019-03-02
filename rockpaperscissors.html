@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 2
+  </title>
+</head>
+<body>
+  <div id="game">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="jumbotron">
+            <h2>Your choice: <span id="yourChoiceEle"><strong>--</strong></span></h2>
+            <h2>Computer's choice: <span id="compChoiceEle"><strong>--</strong></span></h2>
+            <h2>Wins: <span id="winEle"><strong>0</strong></span></h2>
+            <h2>Losses: <span id="loseEle"><strong>0</strong></span></h2>
+            <h2>Ties: <span id="tieEle"><strong>0</strong></span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ["r", "s", "p"];
+    var yourChoiceEle = document.getElementById("yourChoice");
+    var compChoiceEle = document.getElementById("compChoice");
+    var winEle = document.getElementById("winEle");
+    var loseEle = document.getElementById("loseEle");
+    var tieEle = document.getElementById("tieEle");
+    var winVal = 0;
+    var loseVal = 0;
+    var tieVal = 0;
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function (event) {
+      // Determines which key was pressed.
+      var userGuess = event.key;
+      console.log(userGuess + "  userguess");
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      console.log(computerGuess + "  compguess");
+      if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+        if (userGuess === computerGuess) {
+          tieVal = tieVal + 1;
+          tieEle.textContent = tieVal;
+          console.log("tieval" + tieVal);
+        } else if ((userGuess === "r" && computerGuess === "s") || (userGuess === "s" && computerGuess === "p") || (userGuess === "p" && computerGuess === "r")) {
+          winVal = winVal + 1;
+          winEle.textContent = winVal;
+          console.log("winval" + winVal);
+        } else {
+          loseVal = loseVal + 1;
+          loseEle.textContent = loseVal;
+          console.log("loseval" + loseVal);
+        }
+      };
+    };
+  </script>
+</body>
+</html>
